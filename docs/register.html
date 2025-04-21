@@ -2,24 +2,24 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Вход • Домашняя библиотека</title>
+  <title>Регистрация • Домашняя библиотека</title>
   <link rel="stylesheet" href="build/assets/app-BxRZe6Ul.css">
   <script src="assets/auth.js"></script>
 </head>
 <body class="d-flex align-items-center justify-content-center" style="height:100vh">
-  <form onsubmit="login(event)" class="shadow p-4 rounded" style="min-width:320px">
-    <h1 class="h4 mb-3 text-center">Вход</h1>
+  <form onsubmit="register(event)" class="shadow p-4 rounded" style="min-width:320px">
+    <h1 class="h4 mb-3 text-center">Регистрация</h1>
     <div class="mb-3">
       <label class="form-label">E‑mail</label>
-      <input id="email" type="email" class="form-control" required value="admin@example.com">
+      <input type="email" class="form-control" required>
     </div>
     <div class="mb-3">
       <label class="form-label">Пароль</label>
-      <input id="password" type="password" class="form-control" required value="qwerty">
+      <input type="password" class="form-control" required>
     </div>
-    <button class="btn btn-primary w-100">Войти</button>
+    <button class="btn btn-success w-100">Зарегистрироваться</button>
     <div class="mt-3 text-center">
-      <a href="register.html">Регистрация</a>
+      <a href="index.html">Уже есть аккаунт?</a>
     </div>
   </form>
 </body>

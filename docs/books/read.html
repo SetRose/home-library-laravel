@@ -4,39 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- CSRF Token -->
+  
   <meta name="csrf-token" content="JmL6Oh9jR6nW2NQ0zv3ar9XtjHD4PypVju0jWOTS">
 
   <title>Домашняя библиотека</title>
-
-  <!-- Fonts -->
+  <script src="assets/auth.js"></script>
+  <script>requireAuth();</script>
+  
   <link rel="dns-prefetch" href="http://fonts.bunny.net/">
   <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-  <!-- Scripts (Laravel + Vite) -->
+  
   <link rel="preload" as="style" href="../build/assets/app-BxRZe6Ul.css" /><link rel="modulepreload" href="../build/assets/app-De4R3s3M.js" /><link rel="stylesheet" href="../build/assets/app-BxRZe6Ul.css" /><script type="module" src="../build/assets/app-De4R3s3M.js"></script>
-  <!-- Дополнительные стили -->
+  
   <style>
-    /* Сбрасываем отступы у html и body */
+    
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
     }
-    /* Лёгкая текстура фона */
+    
     body {
       background: #fcfcfc url("https://www.transparenttextures.com/patterns/paper.png");
       background-repeat: repeat;
     }
-    /* Фиксируем navbar сверху */
+    
     .navbar {
       background-color: #F5F5F5 !important;
       color: #333;
-      position: fixed;   /* Зафиксированная позиция */
-      top: 0;            /* Прилеплен к верху экрана */
+      position: fixed;   
+      top: 0;            
       left: 0;
-      width: 100%;       /* Растягиваем на всю ширину */
-      z-index: 1030;     /* Поверх остального контента */
+      width: 100%;       
+      z-index: 1030;     
       margin: 0;
     }
     .navbar .navbar-brand,
@@ -47,19 +48,15 @@
       color: #000 !important;
     }
 
-    /*
-     * ВАЖНО: основной контент должен отступать от верхнего края,
-     * чтобы не залезать под фиксированный navbar.
-     * Допустим, сам navbar по высоте около 56px, добавим чуть больше (70px).
-     */
+    
     main {
-      margin-top: 70px; /* Отступ сверху, чтобы шапка не перекрывала контент */
+      margin-top: 70px; 
     }
   </style>
 </head>
 <body>
   <div id="app">
-    <!-- Фиксированный NAVBAR -->
+    
     <nav class="navbar navbar-expand-md shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="../index.html">
@@ -72,37 +69,27 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Левая часть (если требуется меню) -->
+          
           <ul class="navbar-nav me-auto">
             
           </ul>
 
-          <!-- Правая часть: логин/регистрация/профиль -->
+          
           <ul class="navbar-nav ms-auto">
-                          <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="read.html#"
-                   role="button" data-bs-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false" v-pre>
-                  123123123
-                </a>
-                <div class="dropdown-menu dropdown-menu-end"
-                     aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="http://127.0.0.1:8000/logout"
-                     onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                    Выйти
-                  </a>
-                  <form id="logout-form" action="http://127.0.0.1:8000/logout"
-                        method="POST" class="d-none">
-                    <input type="hidden" name="_token" value="JmL6Oh9jR6nW2NQ0zv3ar9XtjHD4PypVju0jWOTS" autocomplete="off">                  </form>
-                </div>
-              </li>
-                      </ul>
-        </div><!-- /.collapse -->
-      </div><!-- /.container -->
+            <li class="nav-item">
+              <!-- просто ссылка «Выйти», вызывает logout() из auth.js -->
+              <a class="nav-link"
+                 href="#"
+                 onclick="logout()">
+                Выйти
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ (с отступом сверху) -->
+    
     <main class="py-4">
       <div class="container">
 
@@ -118,13 +105,13 @@
     </div>
 
     
-    <!-- Сетка карточек -->
+    
     <div class="row g-3">
 
                     <div class="col-12 col-md-6 col-lg-4">
-                <!-- Карточка книги -->
+                
                 <div class="card book-card h-100 p-3 border-0 shadow-sm" style="cursor: default;">
-                    <!-- Изображение: именно оно открывает модалку (data-bs-toggle="modal") -->
+                    
                                             <img src="https://api.bookmate.ru/assets/audiobooks-covers/65/37/UDN5DXia-large.jpeg?image_hash=7086e4ead0c087e6ec832a1dbc21d427"
                              class="card-img-top"
                              alt="Обложка книги"
@@ -132,7 +119,7 @@
                              data-bs-toggle="modal"
                              data-bs-target="#bookModal-1">
                     
-                    <!-- Тело карточки -->
+                    
                     <div class="card-body d-flex flex-column mt-2">
                         <h5 class="card-title">1</h5>
                         <p class="card-text text-muted mb-1">
@@ -142,17 +129,17 @@
                             1
                         </p>
 
-                        <!-- Кнопки и метки -->
+                        
                         <div class="mt-auto">
                             <div class="d-flex flex-wrap gap-2">
-                                <!-- Кнопка "Редактировать" -->
+                                
                                 <a href="1/edit.html"
                                    class="btn btn-sm btn-warning fw-bold px-3"
                                    onclick="event.stopPropagation();">
                                     Редактировать
                                 </a>
 
-                                <!-- Кнопка "Удалить" -->
+                                
                                 <form action="http://127.0.0.1:8000/books/1"
                                       method="POST"
                                       onsubmit="return confirm('Вы уверены, что хотите удалить эту книгу?');"
@@ -163,15 +150,15 @@
                                     </button>
                                 </form>
 
-                                <!-- Прочитать / Прочитано -->
-                                                                    <!-- Метка: стиль "badge", чтобы было понятно, что это статус, а не кнопка -->
+                                
+                                                                    
                                     <span class="badge rounded-pill text-bg-success px-3 py-2"
                                           style="min-width: 110px;"
                                           onclick="event.stopPropagation();">
                                         Прочитано
                                     </span>
                                 
-                                <!-- В избранное / Избранное -->
+                                
                                                                     <form action="http://127.0.0.1:8000/books/1/favorite"
                                           method="POST"
                                           onclick="event.stopPropagation();">
@@ -181,12 +168,12 @@
                                             В избранное
                                         </button>
                                     </form>
-                                                            </div><!-- /.d-flex -->
-                        </div><!-- /.mt-auto -->
-                    </div><!-- /.card-body -->
-                </div><!-- /.card -->
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Модалка (детальное описание) -->
+                
                 <div class="modal fade"
                      id="bookModal-1"
                      tabindex="-1"
@@ -229,11 +216,13 @@
                     </div>
                   </div>
                 </div>
-                <!-- /Модалка -->
-            </div><!-- /.col -->
-            </div><!-- /.row -->
-</div><!-- /.container -->
+                
+            </div>
+            </div>
+</div>
     </main>
-  </div><!-- /#app -->
+  </div>
 </body>
 </html>
+
+
